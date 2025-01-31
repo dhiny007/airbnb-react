@@ -1,0 +1,36 @@
+.headerContentAlign {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    padding-top: 1rem;
+    margin: 0 3%;
+}
+
+.logoAlign {
+    height: 85%;
+}
+
+.navButtons {
+    text-transform: none;
+    color: black;
+    font-weight: 550;
+    font-size: 1rem;
+    margin-top: 0.4rem;
+}
+
+.rightSection {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.rightContentText {
+    font-weight: 600;
+}
+
+.outlinedButton {
+    border-radius: 20px;
+    border: 1px solid #e8e7e6;
+    margin-top: 0;
+    padding: 0.8rem;
+}
