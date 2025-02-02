@@ -58,6 +58,7 @@ function Header() {
       </div>
     </div>
     <HeaderFilters />
+    <hr className={styles.bottomLine}></hr>
     </>
   );
 }

@@ -12,15 +12,20 @@
     margin-top: 1.8rem;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow */
     background-color: transparent;
+    border: 1px solid #c5c7c9;
+
+    .searchButton {
+        border: 0;
+        border-left: none; /* Remove left border initially */
+        position: relative;
+        transition: all 0.3s ease-in-out; /* Smooth transitions */
+    }
 }
 
-.searchButton:hover {
-    border: 1px solid grey;
-}
-
+/* First and last button rounded corners */
 .searchButton:first-child {
     border-top-left-radius: 35px;
-    border-bottom-left-radius: 35px; 
+    border-bottom-left-radius: 35px;
 }
 
 .searchButton:last-child {
@@ -28,24 +33,52 @@
     border-bottom-right-radius: 35px;
 }
 
-.searchButton {
-    border-color: #c5c7c9;
+/* Apply a divider effect (left border) with spacing */
+.searchButton:not(:first-child) {
+    position: relative;
 }
 
+/* Divider line between buttons (not full height) */
 .searchButton:not(:first-child)::before {
-    position: absolute;
     content: "";
-    width: 1px;
+    position: absolute;
     left: 0;
-    top: 20%;
-    bottom: 20%;
-    background-color: #ddd;
+    top: 25%; /* Space from the top */
+    bottom: 25%; /* Space from the bottom */
+    width: 1px;
+    background-color: #ddd; /* Divider color */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition */
 }
 
+/* Hover effect: Rounded corners and hide the divider */
+.searchButton:hover {
+    border: 0;
+    border-radius: 35px !important; /* Apply rounded corners */
+    z-index: 1; /* Elevate hovered button */
+    overflow: hidden;
+}
+
+/* Hide the divider when hovered */
+.searchButton:hover::before {
+    opacity: 0 !important;
+    visibility: hidden;
+}
+
+.searchButton:hover + .searchButton::before {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Hide the border-left when a button is hovered, to avoid visual artifacts */
+.searchButton:hover + .searchButton {
+    border-left: none;
+}
+
+/* Label styling */
 .labelAlign {
     display: block;
     text-align: left;
     text-transform: none;
-    color:black;
+    color: black;
     font-weight: 500;
 }
